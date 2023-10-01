@@ -4,23 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CommonAppBar extends StatefulWidget {
+class CommonAppBar extends StatelessWidget {
   final VoidCallback onTabCallback;
+  final String lightAssetLocation;
+  final String darkAssetLocation;
   final String title;
   final String? tooltip;
 
   const CommonAppBar({
+    required this.lightAssetLocation,
+    required this.darkAssetLocation,
     required this.title,
     required this.onTabCallback,
     this.tooltip,
     Key? key,}) : super(key: key);
 
-  @override
-  State<CommonAppBar> createState() => _CommonAppBarState();
-}
-
-
-class _CommonAppBarState extends State<CommonAppBar> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeCubit, ThemeState>(
@@ -34,19 +32,19 @@ class _CommonAppBarState extends State<CommonAppBar> {
                 alignment: Alignment.centerLeft,
                 icon: SvgPicture.asset(
                   Utility.isLightTheme(state.themeType) ?
-                  'assets/icons/menu.svg' : 'assets/icons/light_menu.svg',
+                  darkAssetLocation : lightAssetLocation,
                   fit: BoxFit.contain,
                   alignment: Alignment.centerLeft,
                   height: 24,
                   width: 24,
                 ),
-                tooltip: widget.tooltip ?? 'Toggle Appbar menu',
+                tooltip: tooltip ?? 'Toggle Appbar menu',
                 onPressed: () {
-                  widget.onTabCallback.call();
+                  onTabCallback.call();
                 },
               ),
               const SizedBox(width: 40),
-              Text(widget.title,
+              Text(title,
                 style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w600

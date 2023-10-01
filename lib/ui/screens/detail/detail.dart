@@ -16,64 +16,78 @@ class Detail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView(children: [
-      CommonAppBar(
-        onTabCallback: () => Navigator.of(context).pop(),
-        title: 'About',
-        tooltip: 'Back to dashboard',
-      ),
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: ListView(
         children: [
-          Text(
-            detailDataModel.title,
-            style: TextStyle(
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
-            ),
+          CommonAppBar(
+            onTabCallback: () => Navigator.of(context).pop(),
+            darkAssetLocation: 'assets/icons/arrow.svg',
+            lightAssetLocation: 'assets/icons/light_arrow.svg',
+            title: 'Detail News',
+            tooltip: 'Back to dashboard',
           ),
-          SizedBox(height: 8.0),
-          Row(
-            children: [
-              Text(
-                'Author: ${detailDataModel.author}',
-                style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  detailDataModel.title,
+                  style: const TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
-              ),
-              Spacer(),
-              Text(
-                'Published at: ${detailDataModel.publishedAt}',
-                style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold,
+                const SizedBox(height: 8.0),
+                Row(
+                  children: [
+                    Text(
+                      detailDataModel.author,
+                      style: const TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                    const Spacer(),
+                    Text(
+                      detailDataModel.publishedAt,
+                      style: const TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: 16.0),
-          Text(
-            detailDataModel.description,
-            style: TextStyle(
-              fontSize: 18.0,
-            ),
-          ),
-          SizedBox(height: 16.0),
-          Image.network(
-            detailDataModel.imageUrl,
-            height: 200.0,
-            fit: BoxFit.cover,
-          ),
-          SizedBox(height: 16.0),
-          Text(
-            detailDataModel.content,
-            style: TextStyle(
-              fontSize: 18.0,
+                const SizedBox(height: 16.0),
+                Text(
+                  detailDataModel.description,
+                  style: const TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  // Adjust the radius as needed
+                  child: Image.network(
+                    detailDataModel.imageUrl,
+                    height: 200.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                Text(
+                  detailDataModel.content,
+                  style: const TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ],
             ),
           ),
         ],
       ),
-    ]));
+    );
   }
 }

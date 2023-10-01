@@ -12,6 +12,8 @@ class AboutScreen extends StatelessWidget {
       body: ListView(children: [
         CommonAppBar(
           onTabCallback: () => Navigator.of(context).pop(),
+          darkAssetLocation: 'assets/icons/arrow.svg',
+          lightAssetLocation: 'assets/icons/light_arrow.svg',
           title: 'About',
           tooltip: 'Back to dashboard',
         ),

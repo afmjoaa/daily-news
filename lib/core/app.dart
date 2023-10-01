@@ -1,4 +1,6 @@
+import 'package:daily_news/utility/utility.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../core/news_application.dart';
@@ -16,6 +18,9 @@ class NewsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final app = BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, themeState) {
+          SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
+            statusBarIconBrightness: Utility.isLightTheme(themeState.themeType) ? Brightness.dark : Brightness.light,
+          ));
           return MaterialApp(
             title: 'Daily News',
             theme: themeState.themeData,
