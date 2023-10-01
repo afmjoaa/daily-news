@@ -1,6 +1,8 @@
 import 'package:daily_news/core/news_provider.dart';
 import 'package:intl/intl.dart';
 
+import '../ui/shared/theme/theme_cubit.dart';
+
 class Utility{
 
   static String timeStampToDate(timeStamp) {
@@ -21,6 +23,14 @@ class Utility{
 
   static void showLoadingFailedError(String errorMessage) {
     NewsProvider.loadingCubit.loadingFailed(errorMessage);
+  }
+
+  static bool isLightTheme(ThemeType themeType) {
+    if (themeType == ThemeType.light) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

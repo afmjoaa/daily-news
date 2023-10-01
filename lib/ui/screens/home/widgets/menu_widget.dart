@@ -1,6 +1,8 @@
 import 'package:daily_news/model/detail_data_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import '../../../shared/theme/theme_cubit.dart';
 import '../../about/about_screen.dart';
 import '../../detail/detail.dart';
 
@@ -21,11 +23,12 @@ class MenuWidget extends StatelessWidget {
               child: InkWell(
                 customBorder: const CircleBorder(),
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text("Dark theme isn't implemented yet"),
-                    ),
-                  );
+                  context.read<ThemeCubit>().toggleTheme();
+                  // ScaffoldMessenger.of(context).showSnackBar(
+                  //   const SnackBar(
+                  //     content: Text("Dark theme isn't implemented yet"),
+                  //   ),
+                  // );
                 },
                 child: Padding(
                   padding:

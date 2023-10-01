@@ -1,5 +1,7 @@
+import 'package:daily_news/ui/shared/theme/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../core/news_application.dart';
 
 import 'core/service_locator.dart';
@@ -19,5 +21,10 @@ void main() async{
 }
 
 void startAppComponent(var application) {
-  runApp(SunnyApp(application));
+  runApp(
+    BlocProvider(
+      create: (context) => ThemeCubit(),
+      child: NewsApp(application),
+    ),
+  );
 }

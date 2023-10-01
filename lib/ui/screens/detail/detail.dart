@@ -19,7 +19,6 @@ class Detail extends StatelessWidget {
         body: ListView(children: [
       CommonAppBar(
         onTabCallback: () => Navigator.of(context).pop(),
-        assetLocation: 'assets/icons/arrow.svg',
         title: 'About',
         tooltip: 'Back to dashboard',
       ),

@@ -42,7 +42,6 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
           children: [
             CommonAppBar(
               onTabCallback: () => widget.zoomDrawerController.toggle?.call(),
-              assetLocation: 'assets/icons/menu.svg',
               title: 'Daily News',
             ),
             Container()
