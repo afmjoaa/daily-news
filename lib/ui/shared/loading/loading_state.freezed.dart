@@ -170,7 +170,7 @@ abstract class LoadingFailedState implements LoadingState {
   const factory LoadingFailedState(final String errorMessage) =
       _$LoadingFailedState;
 
-  String get errorMessage => throw _privateConstructorUsedError;
+  String get errorMessage;
 }
 
 /// @nodoc

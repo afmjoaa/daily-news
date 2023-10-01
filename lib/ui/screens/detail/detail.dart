@@ -1,7 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../model/detail_data_model.dart';
 import '../../shared/common_appbar.dart';
+import '../../shared/shimmer_widget.dart';
 
 class Detail extends StatelessWidget {
   static const String path = '/detail';
@@ -69,10 +73,15 @@ class Detail extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10.0),
                   // Adjust the radius as needed
-                  child: Image.network(
-                    detailDataModel.imageUrl,
+                  child: CachedNetworkImage(
+                    imageUrl: detailDataModel.imageUrl,
                     height: 200.0,
+                    placeholder: (_, __) => const ShimmerWidget(),
+                    errorWidget: (_, __, error) => const ShimmerWidget(),
                     fit: BoxFit.cover,
+                    fadeOutDuration: const Duration(seconds: 1),
+                    fadeInDuration: const Duration(seconds: 2),
+                    cacheManager: DefaultCacheManager(),
                   ),
                 ),
                 const SizedBox(height: 16.0),
