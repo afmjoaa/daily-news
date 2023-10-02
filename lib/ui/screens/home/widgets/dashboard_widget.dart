@@ -47,7 +47,6 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
         color: Colors.green,
         onRefresh: _pullRefresh,
         child: Column(
-
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 24),

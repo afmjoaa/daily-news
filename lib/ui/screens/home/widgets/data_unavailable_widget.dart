@@ -14,10 +14,8 @@ class DataUnavailableWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
+        padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+        child: ListView(
           children: <Widget>[
             SvgPicture.asset(
               'assets/icons/error.svg',
