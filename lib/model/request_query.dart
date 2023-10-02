@@ -1,9 +1,9 @@
 
 class RequestQuery{
 
-  final String country;
-  final String category;
-  final String query;
+  String country;
+  String category;
+  String query;
 
   RequestQuery(this.country, this.category, this.query);
 }

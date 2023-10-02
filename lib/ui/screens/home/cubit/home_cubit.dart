@@ -13,11 +13,17 @@ import 'home_state.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(const HomeInitialState());
 
-  Future<void> getTopHeadlines() async {
+  RequestQuery lastRequestQuery = RequestQuery("us", "business", "");
+
+  Future<void> getTopHeadlines({RequestQuery? requestQuery}) async {
     Utility.startLoadingAnimation();
 
+    if (requestQuery != null){
+      lastRequestQuery = requestQuery;
+    }
+
     var topHeadlines = await TopHeadlinesUseCase(sl.get<TopHeadlinesRepository>())
-        .call(RequestQuery("us", "business", ""));
+        .call(lastRequestQuery);
 
     if (topHeadlines == null) {
       emit(DataUnavailableState(NewsTexts.get()["noLocalData"]));

@@ -1,5 +1,6 @@
 import 'package:daily_news/domain/entities/top_headlines.dart';
 import 'package:daily_news/ui/screens/home/widgets/news_list.dart';
+import 'package:daily_news/ui/screens/home/widgets/query_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +47,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
         color: Colors.green,
         onRefresh: _pullRefresh,
         child: Column(
+
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 24),
@@ -56,6 +58,7 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                 title: 'Daily News',
               ),
             ),
+            QueryWidget(homeCubit: _homeCubit,),
             BlocProvider.value(
               value: _homeCubit,
               child: BlocBuilder<HomeCubit, HomeState>(
