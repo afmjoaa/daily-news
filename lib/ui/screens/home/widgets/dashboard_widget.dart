@@ -1,9 +1,16 @@
+import 'package:daily_news/domain/entities/top_headlines.dart';
 import 'package:daily_news/ui/screens/home/widgets/news_item.dart';
+import 'package:daily_news/ui/screens/home/widgets/news_list.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../data/storage/news_hive_storage.dart';
 import '../../../../model/new_item_model.dart';
 import '../../../shared/common_appbar.dart';
+import '../cubit/home_cubit.dart';
+import '../cubit/home_state.dart';
+import 'data_unavailable_widget.dart';
 
 class DashBoardWidget extends StatefulWidget {
   final ZoomDrawerController zoomDrawerController;
@@ -18,19 +25,19 @@ class DashBoardWidget extends StatefulWidget {
 }
 
 class _DashBoardWidgetState extends State<DashBoardWidget> {
-  // late final HomeCubit _homeCubit;
+  late final HomeCubit _homeCubit;
   late Future<void> _hiveInit;
 
   @override
   void initState() {
     super.initState();
-    // _homeCubit = HomeCubit();
-    // _hiveInit = SunnyHiveStorage.init();
-    // _hiveInit.whenComplete(_homeCubit.getCurrentWeather);
+    _homeCubit = HomeCubit();
+    _hiveInit = NewsHiveStorage.init();
+    _hiveInit.whenComplete(() => _homeCubit.getTopHeadlines());
   }
 
   Future<void> _pullRefresh() async {
-    // _homeCubit.getCurrentWeather();
+    _homeCubit.getTopHeadlines();
   }
 
   @override
@@ -52,35 +59,35 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
                 title: 'Daily News',
               ),
             ),
-            Expanded(
-              child: ListView.builder(
-                padding: const EdgeInsets.all(0),
-                itemCount: 10,
-                itemBuilder: (ctx, index) {
-                  return NewsItem(
-                    newsItemModel: NewsItemModel(
-                      title: "title",
-                      description: "description",
-                      imageUrl:
-                          "https://media.cnn.com/api/v1/images/stellar/prod/230930170539-01-crash-ammonia-leak-illinois-0930-still.jpg?c=16x9&q=w_800,c_fill",
-                    ),
-                  );
-                },
-              ),
-            )
-            // BlocProvider.value(
-            //   value: _homeCubit,
-            //   child: BlocBuilder<HomeCubit, HomeState>(
-            //     builder: (context, state) {
-            //       return state.when(
-            //         homeInitialState: () => Container(),
-            //         dataAvailableState: (CurrentWeather currentWeather) => _getWeatherView(currentWeather),
-            //         dataUnavailableState: (DataUnavailableReason dataUnavailableReason) =>
-            //                 DataUnavailableWidget(dataUnavailableReason: dataUnavailableReason,),
+            // Expanded(
+            //   child: ListView.builder(
+            //     padding: const EdgeInsets.all(0),
+            //     itemCount: 10,
+            //     itemBuilder: (ctx, index) {
+            //       return NewsItem(
+            //         newsItemModel: NewsItemModel(
+            //           title: "title",
+            //           description: "description",
+            //           imageUrl:
+            //               "https://media.cnn.com/api/v1/images/stellar/prod/230930170539-01-crash-ammonia-leak-illinois-0930-still.jpg?c=16x9&q=w_800,c_fill",
+            //         ),
             //       );
             //     },
             //   ),
             // ),
+            BlocProvider.value(
+              value: _homeCubit,
+              child: BlocBuilder<HomeCubit, HomeState>(
+                builder: (context, state) {
+                  return state.when(
+                    homeInitialState: () => Container(),
+                    dataAvailableState: (TopHeadlines topHeadlines) => NewsList(articles: topHeadlines.articles,),
+                    dataUnavailableState: (String reason) =>
+                            DataUnavailableWidget(dataUnavailableReason: reason,),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
@@ -89,8 +96,8 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
 
   @override
   void dispose() {
-    // _homeCubit.close();
-    // SunnyHiveStorage.clear();
+    _homeCubit.close();
+    NewsHiveStorage.clear();
     super.dispose();
   }
 }

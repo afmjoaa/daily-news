@@ -22,14 +22,14 @@ class Article {
     required this.content,
   });
 
-  final Source source;
-  final String author;
-  final String title;
-  final String description;
-  final String url;
-  final String urlToImage;
-  final String publishedAt;
-  final String content;
+  final Source? source;
+  final String? author;
+  final String? title;
+  final String? description;
+  final String? url;
+  final String? urlToImage;
+  final String? publishedAt;
+  final String? content;
 }
 
 class Source{
@@ -38,6 +38,6 @@ class Source{
     required this.name,
   });
 
-  final String id;
-  final String name;
+  final String? id;
+  final String? name;
 }

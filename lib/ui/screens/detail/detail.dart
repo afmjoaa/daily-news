@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:shimmer/shimmer.dart';
 
 import '../../../model/detail_data_model.dart';
 import '../../shared/common_appbar.dart';
@@ -74,6 +73,7 @@ class Detail extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10.0),
                   // Adjust the radius as needed
                   child: CachedNetworkImage(
+                    cacheKey: detailDataModel.imageUrl,
                     imageUrl: detailDataModel.imageUrl,
                     height: 200.0,
                     placeholder: (_, __) => const ShimmerWidget(),

@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 
-import '../../utility/sunny_texts.dart';
+import '../../utility/news_texts.dart';
 import '../../utility/utility.dart';
 import '../models/error_response.dart';
 import 'base_api_provider.dart';
@@ -32,7 +32,7 @@ class SunnyApiProvider extends BaseApiProvider{
       handler.next(response); // continue
     },
     onError: (DioError error, ErrorInterceptorHandler handler) async {
-      String errorMessage = SunnyTexts.get()['anErrorOccurred'];
+      String errorMessage = NewsTexts.get()['anErrorOccurred'];
 
       if (error.response != null && error.response!.data != null) {
         var errorResponse = ErrorResponse.fromJson(error.response!.data);
@@ -51,12 +51,12 @@ class SunnyApiProvider extends BaseApiProvider{
     try {
       final result = await InternetAddress.lookup('example.com');
       if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-        return SunnyTexts.get()['noOrSlowInternetConnection'];
+        return NewsTexts.get()['noOrSlowInternetConnection'];
       }
     } on SocketException catch (_) {
-      return SunnyTexts.get()['networkConnectivityError'];
+      return NewsTexts.get()['networkConnectivityError'];
     }
-    return SunnyTexts.get()['anErrorOccurred'];
+    return NewsTexts.get()['anErrorOccurred'];
   }
 
   BaseOptions createBaseOptions() {

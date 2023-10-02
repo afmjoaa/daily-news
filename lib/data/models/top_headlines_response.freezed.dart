@@ -21,22 +21,22 @@ ArticleResponseModel _$ArticleResponseModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ArticleResponseModel {
   @HiveField(0)
-  SourceResponseModel get sourceResponseModel =>
+  SourceResponseModel? get sourceResponseModel =>
       throw _privateConstructorUsedError;
   @HiveField(1)
-  String get author => throw _privateConstructorUsedError;
+  String? get author => throw _privateConstructorUsedError;
   @HiveField(2)
-  String get title => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   @HiveField(3)
-  String get description => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   @HiveField(4)
-  String get url => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
   @HiveField(5)
-  String get urlToImage => throw _privateConstructorUsedError;
+  String? get urlToImage => throw _privateConstructorUsedError;
   @HiveField(6)
-  String get publishedAt => throw _privateConstructorUsedError;
+  String? get publishedAt => throw _privateConstructorUsedError;
   @HiveField(7)
-  String get content => throw _privateConstructorUsedError;
+  String? get content => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -61,28 +61,28 @@ class _$_ArticleResponseModel extends _ArticleResponseModel {
 
   @override
   @HiveField(0)
-  final SourceResponseModel sourceResponseModel;
+  final SourceResponseModel? sourceResponseModel;
   @override
   @HiveField(1)
-  final String author;
+  final String? author;
   @override
   @HiveField(2)
-  final String title;
+  final String? title;
   @override
   @HiveField(3)
-  final String description;
+  final String? description;
   @override
   @HiveField(4)
-  final String url;
+  final String? url;
   @override
   @HiveField(5)
-  final String urlToImage;
+  final String? urlToImage;
   @override
   @HiveField(6)
-  final String publishedAt;
+  final String? publishedAt;
   @override
   @HiveField(7)
-  final String content;
+  final String? content;
 
   @override
   String toString() {
@@ -92,14 +92,14 @@ class _$_ArticleResponseModel extends _ArticleResponseModel {
 
 abstract class _ArticleResponseModel extends ArticleResponseModel {
   const factory _ArticleResponseModel(
-      @HiveField(0) final SourceResponseModel sourceResponseModel,
-      @HiveField(1) final String author,
-      @HiveField(2) final String title,
-      @HiveField(3) final String description,
-      @HiveField(4) final String url,
-      @HiveField(5) final String urlToImage,
-      @HiveField(6) final String publishedAt,
-      @HiveField(7) final String content) = _$_ArticleResponseModel;
+      @HiveField(0) final SourceResponseModel? sourceResponseModel,
+      @HiveField(1) final String? author,
+      @HiveField(2) final String? title,
+      @HiveField(3) final String? description,
+      @HiveField(4) final String? url,
+      @HiveField(5) final String? urlToImage,
+      @HiveField(6) final String? publishedAt,
+      @HiveField(7) final String? content) = _$_ArticleResponseModel;
   const _ArticleResponseModel._() : super._();
 
   factory _ArticleResponseModel.fromJson(Map<String, dynamic> json) =
@@ -107,28 +107,28 @@ abstract class _ArticleResponseModel extends ArticleResponseModel {
 
   @override
   @HiveField(0)
-  SourceResponseModel get sourceResponseModel;
+  SourceResponseModel? get sourceResponseModel;
   @override
   @HiveField(1)
-  String get author;
+  String? get author;
   @override
   @HiveField(2)
-  String get title;
+  String? get title;
   @override
   @HiveField(3)
-  String get description;
+  String? get description;
   @override
   @HiveField(4)
-  String get url;
+  String? get url;
   @override
   @HiveField(5)
-  String get urlToImage;
+  String? get urlToImage;
   @override
   @HiveField(6)
-  String get publishedAt;
+  String? get publishedAt;
   @override
   @HiveField(7)
-  String get content;
+  String? get content;
 }
 
 SourceResponseModel _$SourceResponseModelFromJson(Map<String, dynamic> json) {
@@ -138,9 +138,9 @@ SourceResponseModel _$SourceResponseModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SourceResponseModel {
   @HiveField(0)
-  String get id => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   @HiveField(1)
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -157,10 +157,10 @@ class _$_SourceResponseModel extends _SourceResponseModel {
 
   @override
   @HiveField(0)
-  final String id;
+  final String? id;
   @override
   @HiveField(1)
-  final String name;
+  final String? name;
 
   @override
   String toString() {
@@ -170,7 +170,7 @@ class _$_SourceResponseModel extends _SourceResponseModel {
 
 abstract class _SourceResponseModel extends SourceResponseModel {
   const factory _SourceResponseModel(
-          @HiveField(0) final String id, @HiveField(1) final String name) =
+          @HiveField(0) final String? id, @HiveField(1) final String? name) =
       _$_SourceResponseModel;
   const _SourceResponseModel._() : super._();
 
@@ -179,8 +179,8 @@ abstract class _SourceResponseModel extends SourceResponseModel {
 
   @override
   @HiveField(0)
-  String get id;
+  String? get id;
   @override
   @HiveField(1)
-  String get name;
+  String? get name;
 }

@@ -47,21 +47,21 @@ class ArticleResponseModel with _$ArticleResponseModel {
       typeId: HiveTypeIds.articlesResponseModel,
       adapterName: 'ArticleResponseModelAdapter')
   const factory ArticleResponseModel(
-    @HiveField(0) SourceResponseModel sourceResponseModel,
-    @HiveField(1) String author,
-    @HiveField(2) String title,
-    @HiveField(3) String description,
-    @HiveField(4) String url,
-    @HiveField(5) String urlToImage,
-    @HiveField(6) String publishedAt,
-    @HiveField(7) String content,
+    @HiveField(0) SourceResponseModel? sourceResponseModel,
+    @HiveField(1) String? author,
+    @HiveField(2) String? title,
+    @HiveField(3) String? description,
+    @HiveField(4) String? url,
+    @HiveField(5) String? urlToImage,
+    @HiveField(6) String? publishedAt,
+    @HiveField(7) String? content,
   ) = _ArticleResponseModel;
 
   factory ArticleResponseModel.fromJson(Map<String, dynamic> json) =>
       _$ArticleResponseModelFromJson(json);
 
   Article toEntity() => Article(
-        source: sourceResponseModel.toEntity(),
+        source: sourceResponseModel?.toEntity(),
         author: author,
         title: title,
         description: description,
@@ -80,8 +80,8 @@ class SourceResponseModel with _$SourceResponseModel {
       typeId: HiveTypeIds.sourceResponseModel,
       adapterName: 'SourceResponseModelAdapter')
   const factory SourceResponseModel(
-    @HiveField(0) String id,
-    @HiveField(1) String name,
+    @HiveField(0) String? id,
+    @HiveField(1) String? name,
   ) = _SourceResponseModel;
 
   factory SourceResponseModel.fromJson(Map<String, dynamic> json) =>

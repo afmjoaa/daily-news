@@ -57,14 +57,14 @@ class ArticleResponseModelAdapter extends TypeAdapter<_$_ArticleResponseModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return _$_ArticleResponseModel(
-      fields[0] as SourceResponseModel,
-      fields[1] as String,
-      fields[2] as String,
-      fields[3] as String,
-      fields[4] as String,
-      fields[5] as String,
-      fields[6] as String,
-      fields[7] as String,
+      fields[0] as SourceResponseModel?,
+      fields[1] as String?,
+      fields[2] as String?,
+      fields[3] as String?,
+      fields[4] as String?,
+      fields[5] as String?,
+      fields[6] as String?,
+      fields[7] as String?,
     );
   }
 
@@ -112,8 +112,8 @@ class SourceResponseModelAdapter extends TypeAdapter<_$_SourceResponseModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return _$_SourceResponseModel(
-      fields[0] as String,
-      fields[1] as String,
+      fields[0] as String?,
+      fields[1] as String?,
     );
   }
 
@@ -155,20 +155,22 @@ TopHeadlinesResponse _$TopHeadlinesResponseFromJson(
 _$_ArticleResponseModel _$$_ArticleResponseModelFromJson(
         Map<String, dynamic> json) =>
     _$_ArticleResponseModel(
-      SourceResponseModel.fromJson(
-          json['sourceResponseModel'] as Map<String, dynamic>),
-      json['author'] as String,
-      json['title'] as String,
-      json['description'] as String,
-      json['url'] as String,
-      json['urlToImage'] as String,
-      json['publishedAt'] as String,
-      json['content'] as String,
+      json['sourceResponseModel'] == null
+          ? null
+          : SourceResponseModel.fromJson(
+              json['sourceResponseModel'] as Map<String, dynamic>),
+      json['author'] as String?,
+      json['title'] as String?,
+      json['description'] as String?,
+      json['url'] as String?,
+      json['urlToImage'] as String?,
+      json['publishedAt'] as String?,
+      json['content'] as String?,
     );
 
 _$_SourceResponseModel _$$_SourceResponseModelFromJson(
         Map<String, dynamic> json) =>
     _$_SourceResponseModel(
-      json['id'] as String,
-      json['name'] as String,
+      json['id'] as String?,
+      json['name'] as String?,
     );
