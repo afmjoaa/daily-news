@@ -42,7 +42,7 @@ class DataUnavailableWidget extends StatelessWidget {
             child: Text(
               NewsTexts.get()['refreshCTA'],
               style: const TextStyle(
-                  color: Colors.blue,
+                  color: Colors.green,
                   fontSize: 16,
                   fontWeight: FontWeight.w600
               ),

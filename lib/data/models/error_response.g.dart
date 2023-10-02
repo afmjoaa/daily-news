@@ -8,9 +8,9 @@ part of 'error_response.dart';
 
 _$_ErrorResponse _$$_ErrorResponseFromJson(Map<String, dynamic> json) =>
     _$_ErrorResponse(
-      json['status'] as String,
-      json['code'] as String,
-      json['message'] as String,
+      json['status'] as String?,
+      json['code'] as String?,
+      json['message'] as String?,
     );
 
 Map<String, dynamic> _$$_ErrorResponseToJson(_$_ErrorResponse instance) =>

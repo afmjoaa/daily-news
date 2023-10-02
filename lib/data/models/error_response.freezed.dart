@@ -20,9 +20,9 @@ ErrorResponse _$ErrorResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ErrorResponse {
-  String get status => throw _privateConstructorUsedError;
-  String get code => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
+  String? get status => throw _privateConstructorUsedError;
+  String? get code => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
@@ -36,11 +36,11 @@ class _$_ErrorResponse implements _ErrorResponse {
       _$$_ErrorResponseFromJson(json);
 
   @override
-  final String status;
+  final String? status;
   @override
-  final String code;
+  final String? code;
   @override
-  final String message;
+  final String? message;
 
   @override
   Map<String, dynamic> toJson() {
@@ -52,16 +52,16 @@ class _$_ErrorResponse implements _ErrorResponse {
 
 abstract class _ErrorResponse implements ErrorResponse {
   const factory _ErrorResponse(
-          final String status, final String code, final String message) =
+          final String? status, final String? code, final String? message) =
       _$_ErrorResponse;
 
   factory _ErrorResponse.fromJson(Map<String, dynamic> json) =
       _$_ErrorResponse.fromJson;
 
   @override
-  String get status;
+  String? get status;
   @override
-  String get code;
+  String? get code;
   @override
-  String get message;
+  String? get message;
 }

@@ -8,9 +8,9 @@ import '../../utility/utility.dart';
 import '../models/error_response.dart';
 import 'base_api_provider.dart';
 
-class SunnyApiProvider extends BaseApiProvider{
+class NewsApiProvider extends BaseApiProvider{
 
-  SunnyApiProvider() {
+  NewsApiProvider() {
     BaseOptions options = createBaseOptions();
     dio = Dio(options);
 
@@ -36,7 +36,7 @@ class SunnyApiProvider extends BaseApiProvider{
 
       if (error.response != null && error.response!.data != null) {
         var errorResponse = ErrorResponse.fromJson(error.response!.data);
-        errorMessage = errorResponse.message;
+        errorMessage = errorResponse.message ?? NewsTexts.get()['anErrorOccurred'];
       } else if (error.message.isNotEmpty) {
         errorMessage = await connectionCheck();
       }

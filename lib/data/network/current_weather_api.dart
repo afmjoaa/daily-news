@@ -1,5 +1,5 @@
 import '../../core/service_locator.dart';
-import '../api_provider/sunny_api_provider.dart';
+import '../api_provider/news_api_provider.dart';
 import '../models/base_model/base_model.dart';
 import '../models/error_response.dart';
 import '../models/top_headlines_query_params.dart';
@@ -12,7 +12,7 @@ class TopHeadlinesApi extends BaseApi<
     ErrorResponse> {
 
   TopHeadlinesApi()
-      : super(SunnyApiProvider.topHeadlines, sl<SunnyApiProvider>());
+      : super(NewsApiProvider.topHeadlines, sl<NewsApiProvider>());
 
   @override
   BaseModel mapErrorResponse(Map<String, dynamic>? errorJson) {

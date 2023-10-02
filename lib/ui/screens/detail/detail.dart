@@ -75,7 +75,8 @@ class Detail extends StatelessWidget {
                   child: CachedNetworkImage(
                     cacheKey: detailDataModel.imageUrl,
                     imageUrl: detailDataModel.imageUrl,
-                    height: 200.0,
+                    height: 200,
+                    width: 200,
                     placeholder: (_, __) => const ShimmerWidget(),
                     errorWidget: (_, __, error) => const ShimmerWidget(),
                     fit: BoxFit.cover,

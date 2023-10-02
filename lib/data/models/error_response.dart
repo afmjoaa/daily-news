@@ -10,9 +10,9 @@ part 'error_response.g.dart';
 )
 class ErrorResponse extends BaseModel<ErrorResponse> with _$ErrorResponse {
   const factory ErrorResponse(
-    String status,
-    String code,
-    String message,
+    String? status,
+    String? code,
+    String? message,
   ) = _ErrorResponse;
 
   factory ErrorResponse.fromJson(Map<String, dynamic> json) =>
