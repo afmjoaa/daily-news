@@ -63,7 +63,8 @@ class NewsApiProvider extends BaseApiProvider{
     final Map<String, String> _baseHeaders = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': 'f5135eea2f7748d7b144be1c2fad9c78'
+      'Authorization': 'f5135eea2f7748d7b144be1c2fad9c78',
+      "Access-Control-Allow-Origin": "*"
     };
     BaseOptions options =
     BaseOptions(baseUrl: 'https://newsapi.org/v2/', headers: _baseHeaders);
