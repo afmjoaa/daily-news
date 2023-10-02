@@ -23,11 +23,10 @@ class TopHeadlinesRepositoryImpl implements TopHeadlinesRepository {
     await _topHeadlinesRemoteDataSource.getTopHeadlines(country, category, query);
 
     var result = _response.fold((apiResponse) async {
-      _topHeadlinesLocalDataSource.putTopHeadlinesResponse(apiResponse);
+      _topHeadlinesLocalDataSource.putTopHeadlinesResponse(apiResponse, country, category, query);
       return apiResponse.toEntity();
     }, (error) async {
-      var localResponse = await _topHeadlinesLocalDataSource
-          .getTopHeadlinesResponse();
+      var localResponse = await _topHeadlinesLocalDataSource.getTopHeadlinesResponse(country, category, query);
       if (localResponse != null) {
         return localResponse.toEntity();
       } else {

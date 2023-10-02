@@ -20,10 +20,9 @@ class TopHeadlinesRemoteDataSourceImpl implements TopHeadlinesRemoteDataSource {
 
   @override
   Future<Either<TopHeadlinesResponse, ErrorResponse>> getTopHeadlines(String country, String category, String query) async {
-    // TODO use params from functions.
     Either<TopHeadlinesResponse, ErrorResponse> response =
     await _topHeadlinesApi.get(
-        queryParameters: const TopHeadlinesQueryParams("f5135eea2f7748d7b144be1c2fad9c78", "us", "business", "").toJson());
+        queryParameters: TopHeadlinesQueryParams("f5135eea2f7748d7b144be1c2fad9c78", country, category, query).toJson());
     return response;
   }
 }
