@@ -10,7 +10,8 @@ part 'error_response.g.dart';
 )
 class ErrorResponse extends BaseModel<ErrorResponse> with _$ErrorResponse {
   const factory ErrorResponse(
-    int cod,
+    String status,
+    String code,
     String message,
   ) = _ErrorResponse;
 
